@@ -1,0 +1,1 @@
+{"version":3,"file":"preview-plain.d.ts","sourceRoot":"","sources":["../src/preview-plain.ts"],"names":[],"mappings":"AAAA;;;;;;;;GAQG;AAWH,OAAO,KAAK,EAAE,aAAa,EAAE,sBAAsB,EAAE,MAAM,YAAY,CAAC;AAcxE,gGAAgG;AAChG,wBAAgB,8BAA8B,CAC5C,MAAM,EAAE,sBAAsB,EAC9B,IAAI,EAAE,aAAa,GAClB,MAAM,CAsCR;AAED,gFAAgF;AAChF,wBAAgB,yBAAyB,CACvC,MAAM,EAAE,sBAAsB,EAC9B,IAAI,EAAE,aAAa,GAClB,MAAM,CAKR"}

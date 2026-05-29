@@ -1,0 +1,99 @@
+{
+  "name": "@gg-utils/platform-logs-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Config-driven platform log UI planning and command orchestration helpers.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./build-argv": {
+      "types": "./src/build-argv.ts",
+      "default": "./src/build-argv.ts"
+    },
+    "./format-command": {
+      "types": "./src/format-command.ts",
+      "default": "./src/format-command.ts"
+    },
+    "./inspect": {
+      "types": "./src/inspect.ts",
+      "default": "./src/inspect.ts"
+    },
+    "./interactive-menu": {
+      "types": "./src/interactive-menu.ts",
+      "default": "./src/interactive-menu.ts"
+    },
+    "./preview-plain": {
+      "types": "./src/preview-plain.ts",
+      "default": "./src/preview-plain.ts"
+    },
+    "./repo-root": {
+      "types": "./src/repo-root.ts",
+      "default": "./src/repo-root.ts"
+    },
+    "./resolve-log-targets": {
+      "types": "./src/resolve-log-targets.ts",
+      "default": "./src/resolve-log-targets.ts"
+    },
+    "./snapshot": {
+      "types": "./src/snapshot.ts",
+      "default": "./src/snapshot.ts"
+    },
+    "./types": {
+      "types": "./src/types.ts",
+      "default": "./src/types.ts"
+    },
+    "./ui-entrypoint": {
+      "types": "./src/ui-entrypoint.ts",
+      "default": "./src/ui-entrypoint.ts"
+    },
+    "./ui-launcher": {
+      "types": "./src/ui-launcher.ts",
+      "default": "./src/ui-launcher.ts"
+    },
+    "./validate-plan": {
+      "types": "./src/validate-plan.ts",
+      "default": "./src/validate-plan.ts"
+    },
+    "./package.json": "./package.json",
+    "./wizard-model": {
+      "types": "./src/wizard-model.ts",
+      "default": "./src/wizard-model.ts"
+    },
+    "./opentui-app": {
+      "types": "./src/opentui-app.tsx",
+      "default": "./src/opentui-app.tsx"
+    },
+    "./ink-app": {
+      "types": "./src/ink-app.tsx",
+      "default": "./src/ink-app.tsx"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "!src/**/*.unit.test.ts",
+    "README.md",
+    "tsconfig.json",
+    "tsconfig.build.json"
+  ],
+  "engines": {
+    "node": ">=24.11.1 <25",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@11.12.1",
+  "dependencies": {
+    "@gg-utils/platform-logs-core": "git+https://github.com/gg-utils/platform-logs-core.git#main"
+  },
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json",
+    "type-check": "node ../../node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
+    "test": "node ../../node_modules/tsx/dist/cli.mjs --test \"src/**/*.unit.test.ts\""
+  }
+}
