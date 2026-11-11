@@ -18,4 +18,3 @@ export declare function logTailUiResolveRepoRootFromModuleUrl(options: {
     moduleUrl: string;
     relativePathFromModuleDir: string;
 }): string;
-//# sourceMappingURL=repo-root.d.ts.map

@@ -19,7 +19,7 @@ import { logTailUiBuildPreviewPlainText } from "./preview-plain.js";
 import { logTailUiDefaultViewPlan } from "./types.js";
 import { platformLogsKitTestConfig } from "./test-config.unit.js";
 
-test("logTailUiBuildPreviewPlainText includes shortcut and direct command", () => {
+void test("logTailUiBuildPreviewPlainText includes shortcut and direct command", () => {
   const text = logTailUiBuildPreviewPlainText(
     platformLogsKitTestConfig,
     logTailUiDefaultViewPlan(platformLogsKitTestConfig),
@@ -30,7 +30,7 @@ test("logTailUiBuildPreviewPlainText includes shortcut and direct command", () =
   assert.match(text, /1000/u);
 });
 
-test("logTailUiBuildPreviewPlainText covers list-runs", () => {
+void test("logTailUiBuildPreviewPlainText covers list-runs", () => {
   const text = logTailUiBuildPreviewPlainText(platformLogsKitTestConfig, {
     kind: "list-runs",
   });

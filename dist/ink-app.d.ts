@@ -32,4 +32,3 @@ export type PlatformLogsKit_InkAppProps = {
     wizardConfig: PlatformLogsKit_WizardConfig;
 };
 export declare function PlatformLogsKitInkApp({ config, projectRoot, wizardConfig, }: PlatformLogsKit_InkAppProps): React.ReactElement;
-//# sourceMappingURL=ink-app.d.ts.map

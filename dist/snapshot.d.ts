@@ -16,4 +16,3 @@ export declare function logTailUiSnapshotViewFiles(options: {
     lines: string[];
     truncated: boolean;
 };
-//# sourceMappingURL=snapshot.d.ts.map

@@ -18,4 +18,3 @@ export declare function logTailUiDescribeSource(config: PlatformLogsKit_Config, 
 }>): string;
 /** Short label for a configured log source used in compact UI copy. */
 export declare function logTailUiSourceLabel(config: PlatformLogsKit_Config, sourceId: LogTailUiSource): string;
-//# sourceMappingURL=resolve-log-targets.d.ts.map

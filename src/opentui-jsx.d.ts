@@ -51,10 +51,6 @@ type PlatformLogsKit_OpenTuiContainerProps = {
   style?: PlatformLogsKit_OpenTuiStyle;
 };
 
-type PlatformLogsKit_OpenTuiTextProps = {
-  children?: ReactNode;
-  key?: Key;
-};
 
 type PlatformLogsKit_OpenTuiTabSelectProps = {
   key?: Key;
@@ -71,7 +67,6 @@ declare global {
     interface IntrinsicElements {
       box: PlatformLogsKit_OpenTuiContainerProps;
       scrollbox: PlatformLogsKit_OpenTuiContainerProps;
-      text: PlatformLogsKit_OpenTuiTextProps;
       "tab-select": PlatformLogsKit_OpenTuiTabSelectProps;
     }
   }
@@ -82,7 +77,6 @@ declare module "react" {
     interface IntrinsicElements {
       box: PlatformLogsKit_OpenTuiContainerProps;
       scrollbox: PlatformLogsKit_OpenTuiContainerProps;
-      text: PlatformLogsKit_OpenTuiTextProps;
       "tab-select": PlatformLogsKit_OpenTuiTabSelectProps;
     }
   }
@@ -93,7 +87,6 @@ declare module "react/jsx-runtime" {
     interface IntrinsicElements {
       box: PlatformLogsKit_OpenTuiContainerProps;
       scrollbox: PlatformLogsKit_OpenTuiContainerProps;
-      text: PlatformLogsKit_OpenTuiTextProps;
       "tab-select": PlatformLogsKit_OpenTuiTabSelectProps;
     }
   }

@@ -15,4 +15,3 @@ export declare function logTailUiValidateViewPlan(config: PlatformLogsKit_Config
 export declare function logTailUiAssertValidViewPlan(config: PlatformLogsKit_Config, plan: Extract<LogTailUiPlan, {
     kind: "view";
 }>): void;
-//# sourceMappingURL=validate-plan.d.ts.map

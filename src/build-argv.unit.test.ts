@@ -49,7 +49,7 @@ function view(
   };
 }
 
-test("logTailUiBuildSingleFileSourceArgv builds history argv", () => {
+void test("logTailUiBuildSingleFileSourceArgv builds history argv", () => {
   assert.deepEqual(
     logTailUiBuildSingleFileSourceArgv(
       platformLogsKitTestConfig,
@@ -59,7 +59,7 @@ test("logTailUiBuildSingleFileSourceArgv builds history argv", () => {
   );
 });
 
-test("logTailUiBuildScopedRunSourceArgv builds scoped run argv", () => {
+void test("logTailUiBuildScopedRunSourceArgv builds scoped run argv", () => {
   const source = platformLogsKitTestConfig.sources[0];
   if (source === undefined) {
     throw new Error("missing source fixture");
@@ -74,7 +74,7 @@ test("logTailUiBuildScopedRunSourceArgv builds scoped run argv", () => {
   );
 });
 
-test("logTailUiBuildCanonicalArgv routes list-runs and configured sources", () => {
+void test("logTailUiBuildCanonicalArgv routes list-runs and configured sources", () => {
   assert.deepEqual(
     logTailUiBuildCanonicalArgv(platformLogsKitTestConfig, {
       kind: "list-runs",

@@ -12,4 +12,3 @@ export declare function logTailUiFormatNpmRunShortcut(config: PlatformLogsKit_Co
 export declare function logTailUiFormatNpmRunWithForwardedArgs(npmScript: string, forwardedArgv: readonly string[]): string;
 /** Formats a `npx tsx <scriptRelative> [argv]` command string. */
 export declare function logTailUiFormatTsxCommand(scriptRelative: string, argv: readonly string[]): string;
-//# sourceMappingURL=format-command.d.ts.map

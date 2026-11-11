@@ -106,4 +106,3 @@ export function logTailUiDescribeSource(config, plan) {
 export function logTailUiSourceLabel(config, sourceId) {
     return platformLogsKitFindSource(config, sourceId)?.compactLabel ?? sourceId;
 }
-//# sourceMappingURL=resolve-log-targets.js.map

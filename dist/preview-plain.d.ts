@@ -12,4 +12,3 @@ import type { LogTailUiPlan, PlatformLogsKit_Config } from "./types.js";
 export declare function logTailUiBuildPreviewPlainText(config: PlatformLogsKit_Config, plan: LogTailUiPlan): string;
 /** One-line status label for list views and compact Ink/OpenTUI status rows. */
 export declare function logTailUiBuildSummaryLine(config: PlatformLogsKit_Config, plan: LogTailUiPlan): string;
-//# sourceMappingURL=preview-plain.d.ts.map

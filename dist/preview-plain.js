@@ -62,4 +62,3 @@ export function logTailUiBuildSummaryLine(config, plan) {
     }
     return `${logTailUiSourceLabel(config, plan.source)} · ${plan.mode} · ${plan.selectorKind}=${plan.selectorValue}`;
 }
-//# sourceMappingURL=preview-plain.js.map

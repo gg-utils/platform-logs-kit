@@ -29,4 +29,3 @@ export function platformLogsKitFindSource(config, sourceId) {
 export function platformLogsKitFindScope(source, scopeId) {
     return source.scopes.find((scope) => scope.id === scopeId);
 }
-//# sourceMappingURL=types.js.map

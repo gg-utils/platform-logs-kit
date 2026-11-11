@@ -63,4 +63,3 @@ export function logTailUiFormatTsxCommand(scriptRelative, argv) {
         ...argv.map(platformLogsKitShellQuote),
     ].join(" ");
 }
-//# sourceMappingURL=format-command.js.map

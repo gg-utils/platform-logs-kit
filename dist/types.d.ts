@@ -119,4 +119,3 @@ export declare function logTailUiDefaultViewPlan(config: PlatformLogsKit_Config)
 export declare function platformLogsKitFindSource(config: PlatformLogsKit_Config, sourceId: string): PlatformLogsKit_SourceConfig | undefined;
 /** Returns a configured scope for a source or undefined. */
 export declare function platformLogsKitFindScope(source: PlatformLogsKit_SourceConfig, scopeId: string): PlatformLogsKit_ScopeConfig | undefined;
-//# sourceMappingURL=types.d.ts.map

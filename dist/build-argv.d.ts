@@ -18,4 +18,3 @@ export declare function logTailUiBuildScopedRunSourceArgv(config: PlatformLogsKi
 }>, source: PlatformLogsKit_SourceConfig): string[];
 /** Builds the canonical argv and repo-relative script path for a log-tail plan. */
 export declare function logTailUiBuildCanonicalArgv(config: PlatformLogsKit_Config, plan: LogTailUiPlan): PlatformLogsKit_CanonicalArgv;
-//# sourceMappingURL=build-argv.d.ts.map

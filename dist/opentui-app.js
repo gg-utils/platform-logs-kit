@@ -84,7 +84,7 @@ export function PlatformLogsKitOpenTuiApp({ config, projectRoot, wizardConfig, }
         const { scriptRelative, argv } = logTailUiBuildCanonicalArgv(config, {
             kind: "list-runs",
         });
-        PlatformLogsKit_spawnNpxTsxOnce({
+        void PlatformLogsKit_spawnNpxTsxOnce({
             repoRoot: projectRoot,
             scriptPathUnderRepo: scriptRelative,
             args: argv,
@@ -195,4 +195,3 @@ export function PlatformLogsKitOpenTuiApp({ config, projectRoot, wizardConfig, }
     }
     return (_jsx("box", { children: _jsx("text", { children: "Unknown screen" }) }));
 }
-//# sourceMappingURL=opentui-app.js.map

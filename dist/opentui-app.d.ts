@@ -20,4 +20,3 @@ export type PlatformLogsKit_OpenTuiAppProps = {
 };
 /** OpenTUI operator flow for configuring log-tail plans, previews, live tails, and snapshots. */
 export declare function PlatformLogsKitOpenTuiApp({ config, projectRoot, wizardConfig, }: PlatformLogsKit_OpenTuiAppProps): ReactElement;
-//# sourceMappingURL=opentui-app.d.ts.map

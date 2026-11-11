@@ -38,7 +38,7 @@ function resolve(argv: readonly string[]) {
   });
 }
 
-test("PlatformLogsKit_resolveUiEntrypointAction returns help fast-exit", () => {
+void test("PlatformLogsKit_resolveUiEntrypointAction returns help fast-exit", () => {
   assert.deepEqual(resolve(["--help"]), {
     exitCode: 0,
     kind: "help",
@@ -46,7 +46,7 @@ test("PlatformLogsKit_resolveUiEntrypointAction returns help fast-exit", () => {
   });
 });
 
-test("PlatformLogsKit_resolveUiEntrypointAction builds default preview", () => {
+void test("PlatformLogsKit_resolveUiEntrypointAction builds default preview", () => {
   const action = resolve(["--print-preview"]);
   assert.equal(action.kind, "preview");
   if (action.kind !== "preview") {
@@ -57,14 +57,14 @@ test("PlatformLogsKit_resolveUiEntrypointAction builds default preview", () => {
   assert.match(action.text, /npm run logs/u);
 });
 
-test("PlatformLogsKit_resolveUiEntrypointAction returns render action", () => {
+void test("PlatformLogsKit_resolveUiEntrypointAction returns render action", () => {
   assert.deepEqual(resolve(["--project-root", "/tmp/project"]), {
     kind: "render",
     projectRoot: "/tmp/project",
   });
 });
 
-test("PlatformLogsKit_resolveUiEntrypointAction converts parser failures to error actions", () => {
+void test("PlatformLogsKit_resolveUiEntrypointAction converts parser failures to error actions", () => {
   const action = resolve(["--unknown"]);
   assert.equal(action.kind, "error");
   if (action.kind !== "error") {
