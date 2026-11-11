@@ -116,7 +116,7 @@ Run `npm ci --ignore-scripts` before development checks.
 Requires Node `>=22.0.0 <27`. Add this dependency; built JavaScript and declarations are included, with no install build step:
 
 ```json
-"@gg-utils/platform-logs-kit": "git+https://github.com/gg-utils/platform-logs-kit.git#v0.2.0"
+"@gg-utils/platform-logs-kit": "git+https://github.com/gg-utils/platform-logs-kit.git#v0.2.1"
 ```
 
 This kit has no binary and opens no listener. A repository owns its launcher and `PlatformLogsKit_Config` (default view/budgets, sources with relative log paths and tail script paths, scopes, list-runs command and shortcuts). For example, a Node launcher can call:
