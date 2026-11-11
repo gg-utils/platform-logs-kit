@@ -1,6 +1,6 @@
 {
   "name": "@gg-utils/platform-logs-kit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Config-driven platform log UI planning and command orchestration helpers.",
   "license": "MIT",
   "type": "module",
