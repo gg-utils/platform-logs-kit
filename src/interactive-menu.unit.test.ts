@@ -41,6 +41,7 @@ class FakeSession implements PlatformLogsKit_InteractiveMenuSession {
     promptSubtitle: string;
     promptTitle: string;
   }): Promise<TValue> {
+ await Promise.resolve();
     this.lines.push(`choose:${options.promptTitle}:${options.promptSubtitle}`);
     const firstItem = options.items[0];
     if (firstItem === undefined) {
@@ -82,6 +83,7 @@ class FakeSession implements PlatformLogsKit_InteractiveMenuSession {
   }
 
   async promptReadLine(promptText: string): Promise<string> {
+ await Promise.resolve();
     this.lines.push(`prompt:${promptText}`);
     return this.answers.shift() ?? "q";
   }
@@ -144,7 +146,7 @@ const config: PlatformLogsKit_InteractiveMenuConfig<TestSession> = {
   promptText: "Choice: ",
 };
 
-test("PlatformLogsKit_printInteractiveMenu renders grouped items", () => {
+void test("PlatformLogsKit_printInteractiveMenu renders grouped items", () => {
   const session = new FakeSession();
 
   PlatformLogsKit_printInteractiveMenu({ config, session });
@@ -161,9 +163,11 @@ test("PlatformLogsKit_printInteractiveMenu renders grouped items", () => {
   ]);
 });
 
-test(
+void test(
   "PlatformLogsKit_handleInteractiveMenuSelection dispatches static and dynamic rows",
   async () => {
+ await Promise.resolve();
+ await Promise.resolve();
     const session = new FakeSession();
     const runs: string[] = [];
 
@@ -173,6 +177,7 @@ test(
         config,
         cwd: "/repo",
         runScript: async (options) => {
+          await Promise.resolve();
           runs.push(`${options.cwd}:${options.scriptName}`);
         },
         session,
@@ -186,6 +191,7 @@ test(
         config,
         cwd: "/repo",
         runScript: async (options) => {
+          await Promise.resolve();
           runs.push(`${options.cwd}:${options.scriptName}`);
         },
         session,
@@ -198,7 +204,8 @@ test(
   },
 );
 
-test("PlatformLogsKit_runInteractiveMenu handles invalid input then exits by alias", async () => {
+void test("PlatformLogsKit_runInteractiveMenu handles invalid input then exits by alias", async () => {
+ await Promise.resolve();
   const session = new FakeSession(["bad", "", "q"]);
   const runs: string[] = [];
 
@@ -206,6 +213,7 @@ test("PlatformLogsKit_runInteractiveMenu handles invalid input then exits by ali
     config,
     cwd: "/repo",
     runScript: async (options) => {
+          await Promise.resolve();
       runs.push(options.scriptName);
     },
     session,

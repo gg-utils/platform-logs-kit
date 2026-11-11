@@ -68,4 +68,3 @@ export function logTailUiFilterLines(lines, inspection) {
 export function logTailUiCountErrors(lines) {
     return lines.reduce((count, line) => count + (logTailUiLineLooksLikeError(line) ? 1 : 0), 0);
 }
-//# sourceMappingURL=inspect.js.map

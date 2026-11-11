@@ -38,4 +38,3 @@ export declare function PlatformLogsKit_resolveUiEntrypointAction(options: {
     errorPrefix: string;
     helpText: string;
 }): PlatformLogsKit_UiEntrypointAction;
-//# sourceMappingURL=ui-entrypoint.d.ts.map

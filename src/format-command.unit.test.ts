@@ -31,7 +31,7 @@ function view(
   };
 }
 
-test("logTailUiFormatNpmRunShortcut matches configured defaults", () => {
+void test("logTailUiFormatNpmRunShortcut matches configured defaults", () => {
   assert.equal(
     logTailUiFormatNpmRunShortcut(
       platformLogsKitTestConfig,
@@ -54,7 +54,7 @@ test("logTailUiFormatNpmRunShortcut matches configured defaults", () => {
   );
 });
 
-test("logTailUiFormatTsxCommand shell-quotes argv tokens", () => {
+void test("logTailUiFormatTsxCommand shell-quotes argv tokens", () => {
   assert.equal(
     logTailUiFormatTsxCommand("scripts/x.ts", ["--scope", "a b"]),
     "npx tsx scripts/x.ts '--scope' 'a b'",

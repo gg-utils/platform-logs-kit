@@ -20,12 +20,12 @@ import {
   logTailUiLineMatchesInspection,
 } from "./inspect.js";
 
-test("logTailUiLineLooksLikeError detects error tokens", () => {
+void test("logTailUiLineLooksLikeError detects error tokens", () => {
   assert.equal(logTailUiLineLooksLikeError("[APP] ERROR: boom"), true);
   assert.equal(logTailUiLineLooksLikeError("listening on 3000"), false);
 });
 
-test("logTailUiLineMatchesInspection applies filters", () => {
+void test("logTailUiLineMatchesInspection applies filters", () => {
   assert.equal(
     logTailUiLineMatchesInspection("ok", {
       errorsOnly: true,
@@ -44,7 +44,7 @@ test("logTailUiLineMatchesInspection applies filters", () => {
   );
 });
 
-test("logTailUiFilterLines filters by inspection", () => {
+void test("logTailUiFilterLines filters by inspection", () => {
   assert.deepEqual(
     logTailUiFilterLines(["a", "ERROR b", "c"], {
       errorsOnly: true,

@@ -88,4 +88,3 @@ export async function PlatformLogsKit_runInteractiveMenu(options) {
         await options.session.promptReadLine(options.config.continuePromptText);
     }
 }
-//# sourceMappingURL=interactive-menu.js.map

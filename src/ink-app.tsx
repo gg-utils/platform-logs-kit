@@ -107,7 +107,7 @@ function EntryScreen(): React.ReactElement {
     }
     if (result.action === "navigate") {
       setPlan(result.plan);
-      navigate(result.nextRoute);
+      void navigate(result.nextRoute);
     }
   });
 
@@ -147,13 +147,13 @@ function ScopeScreen(): React.ReactElement {
 
   useInput((_input, key) => {
     if (key.escape) {
-      navigate(-1);
+      void navigate(-1);
     }
     const option = scopeOptions[Number.parseInt(_input, 10) - 1];
     const result = logTailUiWizardResolveScopeSelection(plan, option?.value);
     if (result.action === "navigate") {
       setPlan(result.plan);
-      navigate(result.nextRoute);
+      void navigate(result.nextRoute);
     }
   });
 
@@ -181,12 +181,12 @@ function ScopeScreen(): React.ReactElement {
  */
 function ModeScreen(): React.ReactElement {
   const navigate = useNavigate();
-  const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+  const { plan, setPlan, wizardConfig } = useLogTailInkContext();
   const modeOptions = logTailUiWizardModeOptions({ includeBackOption: false });
 
   useInput((_input, key) => {
     if (key.escape) {
-      navigate(-1);
+      void navigate(-1);
       return;
     }
     const option = modeOptions[Number.parseInt(_input, 10) - 1];
@@ -197,7 +197,7 @@ function ModeScreen(): React.ReactElement {
     );
     if (result.action === "navigate") {
       setPlan(result.plan);
-      navigate(result.nextRoute);
+      void navigate(result.nextRoute);
     }
   });
 
@@ -222,14 +222,14 @@ function ModeScreen(): React.ReactElement {
  */
 function BudgetScreen(): React.ReactElement {
   const navigate = useNavigate();
-  const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+  const { config, plan, setPlan } = useLogTailInkContext();
   const budgetOptions = logTailUiWizardBudgetOptions(config, {
     includeBackOption: false,
   });
 
   useInput((_input, key) => {
     if (key.escape) {
-      navigate(-1);
+      void navigate(-1);
       return;
     }
     const option = budgetOptions[Number.parseInt(_input, 10) - 1];
@@ -240,7 +240,7 @@ function BudgetScreen(): React.ReactElement {
     );
     if (result.action === "navigate") {
       setPlan(result.plan);
-      navigate(result.nextRoute);
+      void navigate(result.nextRoute);
     }
   });
 
@@ -265,7 +265,7 @@ function BudgetScreen(): React.ReactElement {
  */
 function InspectScreen(): React.ReactElement {
   const navigate = useNavigate();
-  const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+  const { plan, setPlan } = useLogTailInkContext();
   const inspectOptions = logTailUiWizardInspectOptions({
     includeBackOption: false,
   });
@@ -274,7 +274,7 @@ function InspectScreen(): React.ReactElement {
 
   useInput((_input, key) => {
     if (key.escape) {
-      navigate(-1);
+      void navigate(-1);
       return;
     }
     const keyboardValue =
@@ -285,7 +285,7 @@ function InspectScreen(): React.ReactElement {
     );
     if (result.action === "navigate") {
       setPlan(result.plan);
-      navigate(result.nextRoute);
+      void navigate(result.nextRoute);
     }
   });
 
@@ -331,7 +331,7 @@ function PreviewScreen(): React.ReactElement {
 
   useInput((_input, key) => {
     if (key.escape) {
-      navigate(-1);
+      void navigate(-1);
       return;
     }
     if (key.return) {
@@ -339,7 +339,7 @@ function PreviewScreen(): React.ReactElement {
         plan.kind === "view" ? logTailUiValidateViewPlan(config, plan) : [];
       const result = logTailUiWizardResolvePreviewSelection(plan, "run", errs);
       if (result.action === "navigate") {
-        navigate(result.nextRoute);
+        void navigate(result.nextRoute);
       }
     }
   });
@@ -371,7 +371,7 @@ function RunListScreen(): React.ReactElement {
 
   useInput((_input, key) => {
     if (key.escape || _input === "q") {
-      navigate("/");
+      void navigate("/");
     }
   });
 
@@ -435,7 +435,7 @@ function RunTailScreen(): React.ReactElement {
   useInput((_input, key) => {
     if (key.escape || _input === "q") {
       cancelRef.current?.();
-      navigate("/");
+      void navigate("/");
     }
   });
 
@@ -503,7 +503,7 @@ function RunHistoryScreen(): React.ReactElement {
 
   useInput((_input, key) => {
     if (key.escape || _input === "q") {
-      navigate("/");
+      void navigate("/");
     }
   });
 

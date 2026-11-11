@@ -76,7 +76,7 @@ const wizardConfig: PlatformLogsKit_WizardConfig = {
   ],
 };
 
-test("logTailUiWizardEntryOptions filters Ink-hidden entry options", () => {
+void test("logTailUiWizardEntryOptions filters Ink-hidden entry options", () => {
   assert.equal(
     logTailUiWizardEntryOptions(wizardConfig, {
       includeInkHiddenOptions: false,
@@ -90,7 +90,7 @@ test("logTailUiWizardEntryOptions filters Ink-hidden entry options", () => {
   );
 });
 
-test("logTailUiWizardResolveEntrySelection resolves plans and routes", () => {
+void test("logTailUiWizardResolveEntrySelection resolves plans and routes", () => {
   const runtime = logTailUiWizardResolveEntrySelection(
     platformLogsKitTestConfig,
     wizardConfig,
@@ -124,7 +124,7 @@ test("logTailUiWizardResolveEntrySelection resolves plans and routes", () => {
   );
 });
 
-test("logTailUiWizard rows derive from config", () => {
+void test("logTailUiWizard rows derive from config", () => {
   assert.deepEqual(
     logTailUiWizardScopeOptions(platformLogsKitTestConfig, wizardConfig, {
       includeBackOption: true,
@@ -140,7 +140,7 @@ test("logTailUiWizard rows derive from config", () => {
   );
 });
 
-test("logTailUiWizard transitions update plan and screen", () => {
+void test("logTailUiWizard transitions update plan and screen", () => {
   const entry = logTailUiWizardResolveEntrySelection(
     platformLogsKitTestConfig,
     wizardConfig,
@@ -191,7 +191,7 @@ test("logTailUiWizard transitions update plan and screen", () => {
   assert.equal(preview.nextScreen, "history");
 });
 
-test("logTailUiWizard preview and buffers handle edge states", () => {
+void test("logTailUiWizard preview and buffers handle edge states", () => {
   const listRuns = logTailUiWizardResolvePreviewSelection(
     { kind: "list-runs" },
     "run",

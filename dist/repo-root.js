@@ -20,4 +20,3 @@ export function logTailUiResolveRepoRootFromModuleUrl(options) {
     const here = path.dirname(fileURLToPath(options.moduleUrl));
     return path.resolve(here, options.relativePathFromModuleDir);
 }
-//# sourceMappingURL=repo-root.js.map

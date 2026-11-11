@@ -39,4 +39,3 @@ export declare function logTailUiLineMatchesInspection(line: string, inspection:
 export declare function logTailUiFilterLines(lines: readonly string[], inspection: LogTailUiInspection): string[];
 /** Counts how many lines look like errors. */
 export declare function logTailUiCountErrors(lines: readonly string[]): number;
-//# sourceMappingURL=inspect.d.ts.map

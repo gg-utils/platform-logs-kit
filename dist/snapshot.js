@@ -61,4 +61,3 @@ export function logTailUiSnapshotViewFiles(options) {
     }
     return { lines: allLines, truncated };
 }
-//# sourceMappingURL=snapshot.js.map

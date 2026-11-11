@@ -50,4 +50,3 @@ export function PlatformLogsKit_resolveUiEntrypointAction(options) {
         };
     }
 }
-//# sourceMappingURL=ui-entrypoint.js.map

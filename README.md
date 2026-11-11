@@ -89,7 +89,7 @@ npm test
 npm run build
 ```
 
-Scripts currently expect the source-first workspace toolchain.
+Run `npm ci --ignore-scripts` before development checks.
 
 ## Layout
 
@@ -110,3 +110,26 @@ Scripts currently expect the source-first workspace toolchain.
 - Project-specific log directories, source IDs, npm aliases, and operator labels belong in config.
 - The kit builds plans and UI state; adapters perform process execution.
 - The package depends on `@gg-utils/platform-logs-core`.
+
+## Use from another repository
+
+Requires Node `>=22.0.0 <27`. Add this dependency; built JavaScript and declarations are included, with no install build step:
+
+```json
+"@gg-utils/platform-logs-kit": "git+https://github.com/gg-utils/platform-logs-kit.git#v0.2.0"
+```
+
+This kit has no binary and opens no listener. A repository owns its launcher and `PlatformLogsKit_Config` (default view/budgets, sources with relative log paths and tail script paths, scopes, list-runs command and shortcuts). For example, a Node launcher can call:
+
+```js
+import { PlatformLogsKit_resolveUiEntrypointAction } from '@gg-utils/platform-logs-kit/ui-entrypoint';
+import { config } from './platform-logs.config.js';
+const action = PlatformLogsKit_resolveUiEntrypointAction({
+  argv: process.argv.slice(2), config, cwd: process.cwd(),
+  errorPrefix: '[logs]', helpText: 'Repository logs launcher',
+});
+if (action.kind === 'error') throw new Error(action.message);
+if (action.kind === 'preview' || action.kind === 'help') console.log(action.text);
+```
+
+Run `node scripts/logs.js --print-preview`. For an interactive terminal, render `PlatformLogsKitInkApp` from the `ink-app` subpath with Ink's `render`, passing `config`, `projectRoot`, and a `PlatformLogsKit_WizardConfig`; OpenTUI has an equivalent component for a host-owned renderer. Execution helpers invoke repository-owned scripts through `npx tsx`, so those adapters require `tsx`. There are no TCP ports or bind addresses and no HTTP file serving in this package; snapshot/history APIs read configured local logs.

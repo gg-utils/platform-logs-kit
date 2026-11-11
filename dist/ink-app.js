@@ -10,7 +10,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
  * @see packages/platform-logs-kit/src/wizard-model.ts - Shared wizard rows and transitions.
  * @documentation reviewed=2026-05-21 standard=FILE_OVERVIEW_STANDARDS_TYPESCRIPT@3
  */
-import { createContext, useContext, useEffect, useMemo, useRef, useState, } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState, } from "react";
 import { Box, Static, Text, useInput, useIsScreenReaderEnabled } from "ink";
 import { MemoryRouter, Route, Routes, useNavigate } from "react-router";
 import { logTailUiBuildCanonicalArgv } from "./build-argv.js";
@@ -61,7 +61,7 @@ function EntryScreen() {
         }
         if (result.action === "navigate") {
             setPlan(result.plan);
-            navigate(result.nextRoute);
+            void navigate(result.nextRoute);
         }
     });
     return (_jsxs(Box, { flexDirection: "column", gap: 0, children: [_jsx(Text, { bold: true, color: "cyan", children: "Log tail (Ink)" }), _jsx(Text, { dimColor: true, children: sr
@@ -84,13 +84,13 @@ function ScopeScreen() {
     });
     useInput((_input, key) => {
         if (key.escape) {
-            navigate(-1);
+            void navigate(-1);
         }
         const option = scopeOptions[Number.parseInt(_input, 10) - 1];
         const result = logTailUiWizardResolveScopeSelection(plan, option?.value);
         if (result.action === "navigate") {
             setPlan(result.plan);
-            navigate(result.nextRoute);
+            void navigate(result.nextRoute);
         }
     });
     return (_jsxs(Box, { flexDirection: "column", gap: 0, children: [_jsx(Text, { bold: true, children: "Log scope" }), _jsxs(Text, { dimColor: true, children: ["Esc back \u00B7 1\u2013", scopeOptions.length, " select"] }), scopeOptions.map((option, index) => (_jsxs(Text, { children: [String(index + 1), " ", option.name, " (", option.description, ")"] }, option.value))), plan.kind === "view" ? (_jsxs(Text, { dimColor: true, children: ["Current: ", plan.scope] })) : null] }));
@@ -103,18 +103,18 @@ function ScopeScreen() {
  */
 function ModeScreen() {
     const navigate = useNavigate();
-    const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+    const { plan, setPlan, wizardConfig } = useLogTailInkContext();
     const modeOptions = logTailUiWizardModeOptions({ includeBackOption: false });
     useInput((_input, key) => {
         if (key.escape) {
-            navigate(-1);
+            void navigate(-1);
             return;
         }
         const option = modeOptions[Number.parseInt(_input, 10) - 1];
         const result = logTailUiWizardResolveModeSelection(wizardConfig, plan, option?.value);
         if (result.action === "navigate") {
             setPlan(result.plan);
-            navigate(result.nextRoute);
+            void navigate(result.nextRoute);
         }
     });
     return (_jsxs(Box, { flexDirection: "column", gap: 0, children: [_jsx(Text, { bold: true, children: "Mode" }), _jsx(Text, { dimColor: true, children: "Esc home \u00B7 1 follow \u00B7 2 history snapshot" }), modeOptions.map((option, index) => (_jsxs(Text, { children: [String(index + 1), " ", option.name, " (", option.description, ")"] }, option.value)))] }));
@@ -127,20 +127,20 @@ function ModeScreen() {
  */
 function BudgetScreen() {
     const navigate = useNavigate();
-    const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+    const { config, plan, setPlan } = useLogTailInkContext();
     const budgetOptions = logTailUiWizardBudgetOptions(config, {
         includeBackOption: false,
     });
     useInput((_input, key) => {
         if (key.escape) {
-            navigate(-1);
+            void navigate(-1);
             return;
         }
         const option = budgetOptions[Number.parseInt(_input, 10) - 1];
         const result = logTailUiWizardResolveBudgetSelection(config, plan, option?.value);
         if (result.action === "navigate") {
             setPlan(result.plan);
-            navigate(result.nextRoute);
+            void navigate(result.nextRoute);
         }
     });
     return (_jsxs(Box, { flexDirection: "column", gap: 0, children: [_jsx(Text, { bold: true, children: "Budget preset" }), _jsx(Text, { dimColor: true, children: "Esc back \u00B7 matches default npm shortcuts" }), budgetOptions.map((option, index) => (_jsxs(Text, { children: [String(index + 1), " ", option.name] }, option.value)))] }));
@@ -153,21 +153,21 @@ function BudgetScreen() {
  */
 function InspectScreen() {
     const navigate = useNavigate();
-    const { config, plan, setPlan, wizardConfig } = useLogTailInkContext();
+    const { plan, setPlan } = useLogTailInkContext();
     const inspectOptions = logTailUiWizardInspectOptions({
         includeBackOption: false,
     });
     const view = plan.kind === "view" ? plan : null;
     useInput((_input, key) => {
         if (key.escape) {
-            navigate(-1);
+            void navigate(-1);
             return;
         }
         const keyboardValue = _input === "e" ? "errors" : _input === "j" ? "json" : undefined;
         const result = logTailUiWizardResolveInspectSelection(plan, key.return ? "continue" : keyboardValue);
         if (result.action === "navigate") {
             setPlan(result.plan);
-            navigate(result.nextRoute);
+            void navigate(result.nextRoute);
         }
     });
     return (_jsxs(Box, { flexDirection: "column", gap: 0, children: [_jsx(Text, { bold: true, children: "Inspection filters" }), _jsx(Text, { dimColor: true, children: "e errors \u00B7 j JSON-lines \u00B7 Enter preview \u00B7 Esc back" }), view !== null ? (_jsxs(_Fragment, { children: [_jsxs(Text, { children: ["errorsOnly=", String(view.inspection.errorsOnly), " jsonLines=", String(view.inspection.jsonLines)] }), inspectOptions.map((option) => (_jsxs(Text, { dimColor: true, children: [option.name, ": ", option.description] }, option.value)))] })) : (_jsx(Text, { children: "No view plan" }))] }));
@@ -191,14 +191,14 @@ function PreviewScreen() {
     }, [config, plan]);
     useInput((_input, key) => {
         if (key.escape) {
-            navigate(-1);
+            void navigate(-1);
             return;
         }
         if (key.return) {
             const errs = plan.kind === "view" ? logTailUiValidateViewPlan(config, plan) : [];
             const result = logTailUiWizardResolvePreviewSelection(plan, "run", errs);
             if (result.action === "navigate") {
-                navigate(result.nextRoute);
+                void navigate(result.nextRoute);
             }
         }
     });
@@ -218,7 +218,7 @@ function RunListScreen() {
     const [done, setDone] = useState(false);
     useInput((_input, key) => {
         if (key.escape || _input === "q") {
-            navigate("/");
+            void navigate("/");
         }
     });
     useEffect(() => {
@@ -263,7 +263,7 @@ function RunTailScreen() {
     useInput((_input, key) => {
         if (key.escape || _input === "q") {
             cancelRef.current?.();
-            navigate("/");
+            void navigate("/");
         }
     });
     useEffect(() => {
@@ -305,7 +305,7 @@ function RunHistoryScreen() {
     const [lines, setLines] = useState([]);
     useInput((_input, key) => {
         if (key.escape || _input === "q") {
-            navigate("/");
+            void navigate("/");
         }
     });
     useEffect(() => {
@@ -350,4 +350,3 @@ export function PlatformLogsKitInkApp({ config, projectRoot, wizardConfig, }) {
     }), [config, plan, projectRoot, wizardConfig]);
     return (_jsx(LogTailInkContext.Provider, { value: value, children: _jsx(MemoryRouter, { initialEntries: ["/"], initialIndex: 0, children: _jsx(RouterTree, {}) }) }));
 }
-//# sourceMappingURL=ink-app.js.map

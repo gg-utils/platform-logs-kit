@@ -139,7 +139,7 @@ export function PlatformLogsKitOpenTuiApp({
     const { scriptRelative, argv } = logTailUiBuildCanonicalArgv(config, {
       kind: "list-runs",
     });
-    PlatformLogsKit_spawnNpxTsxOnce({
+    void PlatformLogsKit_spawnNpxTsxOnce({
       repoRoot: projectRoot,
       scriptPathUnderRepo: scriptRelative,
       args: argv,

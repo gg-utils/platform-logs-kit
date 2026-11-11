@@ -39,7 +39,7 @@ import {
   PlatformLogsKit_parseUiLaunchOptions,
 } from "./ui-launcher.js";
 
-test("PlatformLogsKit_parseUiLaunchOptions parses preview and project root", () => {
+void test("PlatformLogsKit_parseUiLaunchOptions parses preview and project root", () => {
   assert.deepEqual(
     PlatformLogsKit_parseUiLaunchOptions({
       argv: ["--print-preview", "--project-root", "/tmp/repo"],
@@ -54,7 +54,7 @@ test("PlatformLogsKit_parseUiLaunchOptions parses preview and project root", () 
   );
 });
 
-test("PlatformLogsKit_parseUiLaunchOptions rejects unknown flags", () => {
+void test("PlatformLogsKit_parseUiLaunchOptions rejects unknown flags", () => {
   assert.throws(
     () =>
       PlatformLogsKit_parseUiLaunchOptions({
@@ -66,7 +66,7 @@ test("PlatformLogsKit_parseUiLaunchOptions rejects unknown flags", () => {
   );
 });
 
-test("PlatformLogsKit_formatUiHelpText includes invocations and fallback commands", () => {
+void test("PlatformLogsKit_formatUiHelpText includes invocations and fallback commands", () => {
   const helpText = PlatformLogsKit_formatUiHelpText({
     entryLabel: "Fallback:",
     fallbackLines: ["npm run logs*"],

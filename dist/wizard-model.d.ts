@@ -106,4 +106,3 @@ export declare function logTailUiWizardAppendBoundedLine(lines: readonly string[
 export declare function logTailUiWizardAppendBoundedText(previous: string, chunk: string, maxCharacters: number): string;
 /** Splits a text buffer into the last non-empty lines for scrollable terminal display. */
 export declare function logTailUiWizardSplitBufferedText(text: string, maxLines: number): string[];
-//# sourceMappingURL=wizard-model.d.ts.map
